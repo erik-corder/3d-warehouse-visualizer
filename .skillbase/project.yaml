@@ -1,0 +1,26 @@
+schema_version: 1
+project:
+  name: 3D Warehouse
+  company: Digital400
+  process_authority: SkillBase
+  execution_harness: Claude Code
+  current_stage: PROBLEM_DISCOVERY_IMPORT   # mirrors state.json; state.json is authoritative
+
+targets:                      # stated direction, not approved architecture
+  backend: .NET 10 LTS
+  frontend: Electron + React + TypeScript
+  three_d: React Three Fiber + Three.js
+  database: Azure SQL via EF Core 10 code-first
+  architecture: modular monolith        # only an approved ADR may change this
+
+invariants:
+  - id: INV-001
+    rule: Multi-tenant. Fail closed when tenant context is absent.
+  - id: INV-002
+    rule: Scale/WMS is read-only and remains the source of truth.
+  - id: INV-003
+    rule: A complete 2D fallback is required.
+
+code_generation:
+  allowed: false
+  unlocked_by: [discovery_approved, solution_approved, architecture_approved]

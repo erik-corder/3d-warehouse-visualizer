@@ -1,0 +1,18 @@
+schema_version: 1
+credentials: none stored here; supplied at runtime via environment or harness. Never commit values.
+jira:
+  enabled: false
+  mode: none            # no issue creation until a human approves and enables it
+confluence:
+  enabled: false
+  mode: none            # no publishing until a human approves and enables it
+github:
+  enabled: false
+  mode: none            # no pull requests until a human approves and enables it
+discovery_sources:      # import-discovery reads ONLY entries listed here with approved_by set
+  []
+  # - id: SRC-001
+  #   type: local-file | jira | confluence
+  #   locator: path, issue key or page id
+  #   approved_by: <human>
+  #   approved_at: <ISO date>

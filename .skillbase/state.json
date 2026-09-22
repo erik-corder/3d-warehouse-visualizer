@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "project": "3D Warehouse",
+  "current_stage": "PROBLEM_DISCOVERY_IMPORT",
+  "stage_status": "NOT_STARTED",
+  "gates": {
+    "discovery_approved": "APPROVED",
+    "solution_approved": "APPROVED",
+    "architecture_approved": "APPROVED",
+    "stories_approved": "APPROVED",
+    "pr_review_approved": "PENDING",
+    "evidence_approved": "PENDING"
+  },
+  "artifacts": {},
+  "approvals": [
+    {
+      "gate": "discovery_approved",
+      "decision": "APPROVED",
+      "approver": "Isuru Sampath",
+      "role": "Business Owner / Product Decision Maker",
+      "date": "2026-09-22",
+      "evidence": ".skillbase/artifacts/evidence/problem-discovery-human-approval.md"
+    },
+    {
+      "gate": "architecture_approved",
+      "decision": "APPROVED",
+      "approver": "Isuru Sampath",
+      "role": "Business Owner / Product Decision Maker",
+      "date": "2026-09-22",
+      "evidence": ".skillbase/artifacts/evidence/hld-adr-human-approval.md"
+    },
+    {
+      "gate": "stories_approved",
+      "decision": "APPROVED",
+      "approver": "Isuru Sampath",
+      "role": "Business Owner / Product Decision Maker",
+      "date": "2026-09-22",
+      "evidence": ".skillbase/artifacts/evidence/story-crafting-human-approval.md"
+    }
+  ],
+  "blocked_by": [
+    "No approved discovery sources in integrations.yaml",
+    "No discovery snapshot in .skillbase/artifacts/discovery/",
+    "discovery_approved gate is PENDING"
+  ],
+  "token_cost": "Not observable",
+  "last_updated": "2026-09-21",
+  "updated_by": "repository foundation bootstrap"
+}
