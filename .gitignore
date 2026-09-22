@@ -1,0 +1,32 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pfx
+*.key
+local.settings.json
+appsettings.*.local.json
+
+# Claude Code local files
+.claude/settings.local.json
+.claude/worktrees/
+CLAUDE.local.md
+.kilo/
+
+# Build output and dependencies
+bin/
+obj/
+node_modules/
+dist/
+out/
+
+# IDE and OS
+.vs/
+.idea/
+.vscode/
+*.user
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

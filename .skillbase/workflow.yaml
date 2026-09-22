@@ -1,0 +1,61 @@
+schema_version: 1
+authority:
+  transitions_owned_by: SkillBase
+  claude_code_may_advance: false
+  claude_code_may_approve: false
+rules:
+  - A stage completes only when its required artifacts exist, validation passes, and its gate is approved by a human.
+  - Missing artifact, failed validation, or missing approval blocks the next stage.
+stages:
+  - id: PROBLEM_DISCOVERY_IMPORT
+    skill: import-discovery
+    artifacts: [discovery]
+    gate: discovery_approved
+  - id: SOLUTION_DISCOVERY
+    artifacts: [solution]
+    requires: [discovery_approved]
+    gate: solution_approved
+  - id: HLD_AND_ADRS
+    artifacts: [architecture]
+    requires: [solution_approved]
+    gate: architecture_approved
+  - id: STORY_CRAFTING
+    artifacts: [stories]
+    requires: [architecture_approved]
+    gate: stories_approved
+  - id: UI_MOCKUP
+    artifacts: [ui_mockup]
+    requires: [stories_approved]
+    unit: per story
+    gate: ui_mockup_approved
+  - id: STORY_LLD
+    artifacts: [story_lld]
+    requires: [stories_approved, ui_mockup_approved]
+    unit: per story
+    gate: story_lld_approved
+  - id: IMPLEMENTATION_PLAN
+    artifacts: [implementation_plan]
+    requires: [story_lld_approved]
+    unit: per story
+    gate: implementation_plan_approved
+  - id: IMPLEMENTATION
+    requires: [discovery_approved, solution_approved, architecture_approved, stories_approved, implementation_plan_approved]
+    unit: one story = one branch/worktree = one pull request
+    gate: implementation_complete
+  - id: TESTING
+    artifacts: [evidence]
+    requires: [implementation_complete]
+    gate: evidence_approved
+  - id: TEST_FAILURE_EXPLANATION
+    artifacts: [test_failure_report]
+    requires: [implementation_complete]
+    condition: only when TESTING reports failures
+    gate: test_failures_explained
+  - id: PR_REVIEW
+    requires: [evidence_approved]
+    unit: one story = one branch/worktree = one pull request
+    gate: pr_review_approved
+  - id: INFRASTRUCTURE_AND_MAINTENANCE
+    artifacts: [infrastructure]
+    requires: [pr_review_approved]
+    gate: infrastructure_approved

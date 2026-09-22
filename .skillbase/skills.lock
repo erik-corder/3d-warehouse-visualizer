@@ -1,0 +1,15 @@
+schema_version: 1
+skills:
+  - name: import-discovery
+    version: 1
+    path: .claude/skills/import-discovery/SKILL.md
+    sha256: 77007016e3a4a29d2ff3cd164645951e1db2b177c0db064338064d26833a4ed7
+    invocation: manual
+    stage: PROBLEM_DISCOVERY_IMPORT
+    writes: [.skillbase/artifacts/discovery/]
+    locked_by: repository foundation bootstrap (pending human review)
+story-lld:
+    path: .claude/skills/story-lld/SKILL.md
+    invocation: manual
+    stage: STORY_LLD
+    locked_by: pending human review
