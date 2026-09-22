@@ -18,3 +18,8 @@ implement-story:
   invocation: manual
   stage: IMPLEMENTATION
   locked_by: pending human review
+pr-creation:
+  path: .claude/skills/pr-creation/SKILL.md
+  invocation: manual
+  stage: PR_REVIEW
+  locked_by: pending human review
