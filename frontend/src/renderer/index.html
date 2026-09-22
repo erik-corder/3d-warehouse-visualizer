@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      connect-src allows any localhost port for the dev/local backend, since the
+      API base URL (App.tsx) is configurable and not fixed to one port. Tightening
+      this to a specific origin is a follow-up once the API base URL convention is
+      finalized (see low-level-design.md, Open questions).
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; connect-src 'self' http://localhost:*"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Warehouse Visualizer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>
