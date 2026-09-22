@@ -1,0 +1,29 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--shadow-low);
+}
+
+.connected {
+  background: var(--color-status-connected-bg);
+  color: var(--color-status-connected-text);
+  border-color: var(--color-status-connected-border);
+}
+
+.loading {
+  background: var(--color-status-loading-bg);
+  color: var(--color-status-loading-text);
+  border-color: var(--color-status-loading-border);
+}
+
+.notConnected {
+  background: var(--color-status-not-connected-bg);
+  color: var(--color-status-not-connected-text);
+  border-color: var(--color-status-not-connected-border);
+}

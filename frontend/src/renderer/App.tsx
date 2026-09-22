@@ -1,14 +1,17 @@
+import './design-system/styles/theme.css';
+
 import { useEffect, useState } from 'react';
+
+import { StatusBadge, type StatusBadgeStatus } from './design-system/components/atoms/StatusBadge';
 
 /**
  * Connection status to the backend API.
  *
- * Note (3DW-STORY-001B scope): this is a local, inline type for this
- * component only. A shared, design-system-aligned typed contract
- * (`IHealthStatus`) is introduced by 3DW-STORY-001C, which also replaces
- * this component's ad hoc markup with a `StatusBadge` atom.
+ * Note (3DW-STORY-001C): now the shared `StatusBadgeStatus` type from the
+ * design system, replacing 3DW-STORY-001B's local inline type. The values
+ * are unchanged.
  */
-type ConnectionState = 'loading' | 'connected' | 'not-connected';
+type ConnectionState = StatusBadgeStatus;
 
 interface HealthResponseBody {
   status: string;
@@ -85,9 +88,7 @@ export function App(): React.JSX.Element {
   return (
     <main>
       <h1>3D Warehouse Visualizer</h1>
-      {connectionState === 'loading' && <p role="status">Checking connection...</p>}
-      {connectionState === 'connected' && <p role="status">Connected</p>}
-      {connectionState === 'not-connected' && <p role="status">Not connected</p>}
+      <StatusBadge status={connectionState} />
     </main>
   );
 }
