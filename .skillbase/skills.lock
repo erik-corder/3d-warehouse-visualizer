@@ -13,3 +13,8 @@ story-lld:
     invocation: manual
     stage: STORY_LLD
     locked_by: pending human review
+implement-story:
+  path: .claude/skills/implement-story/SKILL.md
+  invocation: manual
+  stage: IMPLEMENTATION
+  locked_by: pending human review
